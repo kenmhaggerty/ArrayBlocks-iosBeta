@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (Enumeration)
-- (NSArray *)mapWithOperation:(id(^)(id obj))block;
+- (NSArray *)mapWithOperation:(id(^)(id obj, BOOL *stop))block;
 - (NSArray *)selectWithComparator:(BOOL(^)(id obj))block;
 @end

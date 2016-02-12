@@ -10,12 +10,14 @@
 
 @implementation NSArray (Enumeration)
 
-- (NSArray *)mapWithOperation:(id (^)(id))block
+- (NSArray *)mapWithOperation:(id (^)(id, BOOL *))block
 {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
+    BOOL stop = NO;
     for (NSUInteger i = 0; i < self.count; i++)
     {
-        [array addObject:block(self[i])];
+        [array addObject:block(self[i], &stop)];
+        if (stop) break;
     }
     return array;
 }
