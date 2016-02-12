@@ -24,7 +24,7 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     id obj;
-    for (NSUInteger i = 1; i < self.count; i++)
+    for (NSUInteger i = 0; i < self.count; i++)
     {
         obj = self[i];
         if (block(obj))
